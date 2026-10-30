@@ -54,6 +54,8 @@ public sealed class MainForm : Form
         _audio = new TickAudio(_clock) { OffsetMs = _settings.AudioOffsetMs };
 
         Text = "AVSync";
+        using (var icon = typeof(MainForm).Assembly.GetManifestResourceStream("AVSync.ico"))
+            if (icon != null) Icon = new Icon(icon);
         BackColor = Background;
         ForeColor = Digits;
         ClientSize = new Size(1100, 620);
